@@ -1,16 +1,16 @@
-// Mock data for pet-friendly listings
+// Mock data for 3D printer listings
 import { Listing } from '../types/types';
 
 const listingsData: Listing[] = [
   {
     id: "1",
-    name: "Pawsome Park",
-    type: "park",
-    location: "123 Park Avenue, New York, NY",
-    description: "A spacious park with dedicated areas for dogs to run off-leash. Beautiful walking paths and rest areas for owners.",
-    allowedPets: ["dogs", "cats"],
-    amenities: ["Water fountains", "Waste stations", "Benches", "Shade areas"],
-    photos: ["park1.jpg", "park2.jpg"],
+    name: "Bambu Lab X1 Carbon",
+    type: "fdm",
+    location: "Desktop FDM",
+    description: "High-speed CoreXY FDM printer with multi-material system, lidar-based first layer inspection, and AI failure detection.",
+    supportedMaterials: ["PLA", "ABS", "PETG", "TPU (flexible)"],
+    specifications: ["Build: 256x256x256mm", "Speed: 500mm/s", "AMS multi-material", "AI monitoring"],
+    photos: ["bambu-x1c.jpg", "bambu-x1c-2.jpg"],
     rating: 4.7,
     reviews: [
       {
@@ -18,7 +18,7 @@ const listingsData: Listing[] = [
         userId: "user1",
         userName: "Alex Johnson",
         rating: 5,
-        comment: "My golden retriever loves this park! Plenty of space to run around.",
+        comment: "Incredible print quality with the multi-material system. PLA and PETG prints come out flawless.",
         date: "2025-04-15"
       },
       {
@@ -26,25 +26,25 @@ const listingsData: Listing[] = [
         userId: "user2",
         userName: "Taylor Smith",
         rating: 4,
-        comment: "Clean and well-maintained. Would be perfect with more shade in summer.",
+        comment: "Fast and reliable. AMS system is a game-changer for multi-color prints.",
         date: "2025-04-10"
       }
     ],
     contactInfo: {
       phone: "555-123-4567",
-      email: "info@pawsomepark.com",
-      website: "https://pawsomepark.com"
+      email: "support@bambulab.com",
+      website: "https://bambulab.com"
     }
   },
   {
     id: "2",
-    name: "Whiskers Cafe",
-    type: "cafe",
-    location: "456 Main Street, Seattle, WA",
-    description: "A cozy cafe with a special menu for pets. Indoor and outdoor seating available with pet-friendly accommodations.",
-    allowedPets: ["dogs", "cats", "small_mammals"],
-    amenities: ["Pet menu", "Water bowls", "Pet beds", "Outdoor patio"],
-    photos: ["cafe1.jpg", "cafe2.jpg"],
+    name: "Prusa MK4S",
+    type: "fdm",
+    location: "Desktop FDM",
+    description: "Open-source FDM printer with input shaping, load cell bed leveling, and extensive community support.",
+    supportedMaterials: ["PLA", "PETG", "ABS", "Nylon"],
+    specifications: ["Build: 250x210x220mm", "Speed: 200mm/s", "Input shaping", "Open-source"],
+    photos: ["prusa-mk4s.jpg", "prusa-mk4s-2.jpg"],
     rating: 4.5,
     reviews: [
       {
@@ -52,7 +52,7 @@ const listingsData: Listing[] = [
         userId: "user3",
         userName: "Jamie Lee",
         rating: 5,
-        comment: "They have treats for my dog and great coffee for me!",
+        comment: "Rock-solid workhorse. Input shaping makes it incredibly fast for an open-frame printer.",
         date: "2025-04-18"
       },
       {
@@ -60,25 +60,25 @@ const listingsData: Listing[] = [
         userId: "user4",
         userName: "Casey Morgan",
         rating: 4,
-        comment: "My cat enjoyed lounging on their special pet beds. Very accommodating staff.",
+        comment: "Great community support and open-source firmware. Perfect for tinkerers.",
         date: "2025-04-05"
       }
     ],
     contactInfo: {
       phone: "555-987-6543",
-      email: "hello@whiskerscafe.com",
-      website: "https://whiskerscafe.com"
+      email: "info@prusa3d.com",
+      website: "https://prusa3d.com"
     }
   },
   {
     id: "3",
-    name: "Pet Haven Home",
-    type: "home",
-    location: "789 Oak Road, San Francisco, CA",
-    description: "A beautiful vacation home with a fenced yard, pet doors, and all necessities for your furry friends.",
-    allowedPets: ["dogs", "cats", "birds", "small_mammals"],
-    amenities: ["Fenced yard", "Pet doors", "Pet beds", "Feeding stations", "Pet toys"],
-    photos: ["home1.jpg", "home2.jpg"],
+    name: "Formlabs Form 4",
+    type: "sla",
+    location: "Desktop SLA",
+    description: "Professional resin printer with Low Force Display technology for ultra-fast, high-detail prints.",
+    supportedMaterials: ["Resin (SLA)"],
+    specifications: ["Build: 200x125x210mm", "Resolution: 50 microns", "Low Force Display", "Automated resin system"],
+    photos: ["formlabs-form4.jpg", "formlabs-form4-2.jpg"],
     rating: 4.9,
     reviews: [
       {
@@ -86,7 +86,7 @@ const listingsData: Listing[] = [
         userId: "user5",
         userName: "Jordan Riley",
         rating: 5,
-        comment: "Best pet-friendly accommodation we've found! Our dogs loved the yard.",
+        comment: "Dental and jewelry prints are incredibly detailed. Worth every penny for professional work.",
         date: "2025-03-28"
       },
       {
@@ -94,25 +94,25 @@ const listingsData: Listing[] = [
         userId: "user6",
         userName: "Riley Chen",
         rating: 5,
-        comment: "Even our parakeet was comfortable here. Thoughtful touches for all types of pets.",
+        comment: "The print speed improvement over Form 3 is remarkable. Surface finish is flawless.",
         date: "2025-03-15"
       }
     ],
     contactInfo: {
       phone: "555-234-5678",
-      email: "stay@pethavenhome.com",
-      website: "https://pethavenhome.com"
+      email: "sales@formlabs.com",
+      website: "https://formlabs.com"
     }
   },
   {
     id: "4",
-    name: "Pets & Pillows Hotel",
-    type: "hotel",
-    location: "101 Sunset Blvd, Los Angeles, CA",
-    description: "Luxury hotel that welcomes pets of all sizes. Special pet services available including walking and grooming.",
-    allowedPets: ["dogs", "cats", "birds"],
-    amenities: ["Pet spa", "Walking service", "Pet menu", "Pet sitting", "Pet beds"],
-    photos: ["hotel1.jpg", "hotel2.jpg"],
+    name: "Creality Ender 3 V3",
+    type: "fdm",
+    location: "Desktop FDM",
+    description: "Budget-friendly CoreXZ printer with Klipper firmware, auto bed leveling, and direct drive extruder.",
+    supportedMaterials: ["PLA", "PETG", "TPU (flexible)"],
+    specifications: ["Build: 220x220x250mm", "Speed: 600mm/s", "Klipper firmware", "Direct drive"],
+    photos: ["ender3v3.jpg", "ender3v3-2.jpg"],
     rating: 4.8,
     reviews: [
       {
@@ -120,33 +120,33 @@ const listingsData: Listing[] = [
         userId: "user7",
         userName: "Sam Wilson",
         rating: 5,
-        comment: "They treated my dog like royalty! Room service even for pets.",
+        comment: "Best budget printer on the market. CoreXZ gives it speed without sacrificing quality.",
         date: "2025-04-02"
       },
       {
         id: "402",
         userId: "user8",
         userName: "Jesse Taylor",
-        rating: 4.5,
-        comment: "Great amenities for pets, though a bit pricey.",
+        rating: 4,
+        comment: "Great value for beginners. Klipper firmware out of the box is a nice touch.",
         date: "2025-03-20"
       }
     ],
     contactInfo: {
       phone: "555-876-5432",
-      email: "reservations@petsandpillows.com",
-      website: "https://petsandpillows.com"
+      email: "support@creality.com",
+      website: "https://creality.com"
     }
   },
   {
     id: "5",
-    name: "Furry Friends Store",
-    type: "custom",
-    location: "246 Cherry Lane, Chicago, IL",
-    description: "A pet store with a play area where pets are welcome to try toys and meet other animals.",
-    allowedPets: ["dogs", "cats", "small_mammals", "birds", "other"],
-    amenities: ["Play area", "Treats bar", "Water stations", "Pet events"],
-    photos: ["store1.jpg", "store2.jpg"],
+    name: "Ultimaker S5",
+    type: "industrial",
+    location: "Professional FDM",
+    description: "Industrial-grade dual extrusion printer with enclosed chamber, ideal for engineering-grade materials.",
+    supportedMaterials: ["PLA", "ABS", "PETG", "Nylon", "TPU (flexible)"],
+    specifications: ["Build: 330x240x300mm", "Dual extrusion", "Enclosed chamber", "Water-soluble supports"],
+    photos: ["ultimaker-s5.jpg", "ultimaker-s5-2.jpg"],
     rating: 4.6,
     reviews: [
       {
@@ -154,7 +154,7 @@ const listingsData: Listing[] = [
         userId: "user9",
         userName: "Taylor Kim",
         rating: 5,
-        comment: "My ferret loved the play area! Staff was very knowledgeable about exotic pets.",
+        comment: "Dual extrusion with water-soluble supports is perfect for complex engineering parts.",
         date: "2025-04-12"
       },
       {
@@ -162,24 +162,25 @@ const listingsData: Listing[] = [
         userId: "user10",
         userName: "Alex Rivera",
         rating: 4,
-        comment: "Great selection of products for all types of pets.",
+        comment: "Reliable for production runs. The enclosed chamber handles ABS and Nylon beautifully.",
         date: "2025-04-08"
       }
-    ],    contactInfo: {
+    ],
+    contactInfo: {
       phone: "555-345-6789",
-      email: "shop@furryfriendsstore.com",
-      website: "https://furryfriendsstore.com"
+      email: "sales@ultimaker.com",
+      website: "https://ultimaker.com"
     }
   },
   {
     id: "6",
-    name: "Mooch's Meow",
-    type: "cafe",
-    location: "789 Banana Street, Miami, FL",
-    description: "A unique monkey-themed cafe where you can enjoy your coffee surrounded by banana decor and monkey-themed treats. Perfect for primate enthusiasts and their pets!",
-    allowedPets: ["dogs", "cats", "small_mammals", "other"],
-    amenities: ["Banana treats", "Monkey-themed play area", "Climbing structures", "Tropical atmosphere", "Pet-friendly seating"],
-    photos: ["moochs1.jpg", "moochs2.jpg"],
+    name: "Anycubic Photon Mono M7",
+    type: "sla",
+    location: "Desktop SLA",
+    description: "High-resolution resin printer with 14K mono LCD, tilting release, and fast print speeds for detailed miniatures.",
+    supportedMaterials: ["Resin (SLA)"],
+    specifications: ["Build: 218x123x200mm", "Resolution: 14K", "Tilting release", "High speed resin"],
+    photos: ["anycubic-m7.jpg", "anycubic-m7-2.jpg"],
     rating: 5.0,
     reviews: [
       {
@@ -187,7 +188,7 @@ const listingsData: Listing[] = [
         userId: "user11",
         userName: "Charlie Simmons",
         rating: 5,
-        comment: "Such a fun atmosphere! My dog loved the banana-shaped treats and the staff was amazing.",
+        comment: "14K resolution is insane for miniatures. Every detail comes through perfectly.",
         date: "2025-04-28"
       },
       {
@@ -195,7 +196,7 @@ const listingsData: Listing[] = [
         userId: "user12",
         userName: "Morgan Patel",
         rating: 5,
-        comment: "The monkey theme is adorable! Great place to bring your pets, they have special accommodations for all types of animals.",
+        comment: "Fast print speeds for resin. Great for batch-printing tabletop minis.",
         date: "2025-04-22"
       },
       {
@@ -203,14 +204,14 @@ const listingsData: Listing[] = [
         userId: "user13",
         userName: "Sam Washington",
         rating: 5,
-        comment: "Best cafe experience ever! My cat actually enjoyed the climbing structures, and I loved the monkey-themed lattes!",
+        comment: "The tilting release mechanism significantly reduces peel forces. Fewer failed prints!",
         date: "2025-05-01"
       }
     ],
     contactInfo: {
       phone: "555-111-2222",
-      email: "hello@moochsmeow.com",
-      website: "https://moochsmeow.com"
+      email: "support@anycubic.com",
+      website: "https://anycubic.com"
     }
   }
 ];

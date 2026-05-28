@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
       <div className="navbar-container">          
         <div className="navbar-left">
           <Link to={ROUTES.HOME} className="navbar-logo">
-            <span className="logo-text">Octopets</span>
+            <span className="logo-text">PrintHub</span>
           </Link>
           
           <ul className="nav-menu">
@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
                 to={ROUTES.LISTINGS} 
                 className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
               >
-                Listings
+                Printers
               </NavLink>
             </li>
           </ul>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ROUTES, LISTING_TYPES } from '../data/constants';
-import { PET_TYPES } from '../data/constantsJsx';
+import { MATERIAL_TYPES } from '../data/constantsJsx';
 import { DataService } from '../data/dataService';
-import { Listing, PetType, ListingType } from '../types/types';
+import { Listing, MaterialType, PrinterCategory } from '../types/types';
 import ListingCard from '../components/ListingCard';
 import '../styles/Listings.css';
 
@@ -11,7 +11,7 @@ const Listings: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedPetType, setSelectedPetType] = useState<string>(searchParams.get('petType') || '');
+  const [selectedMaterialType, setSelectedMaterialType] = useState<string>(searchParams.get('materialType') || '');
   const [selectedListingType, setSelectedListingType] = useState<string>(searchParams.get('listingType') || '');  const [searchTerm, setSearchTerm] = useState(searchParams.get('search') || '');
 
   // Function to update search parameters in the URL
@@ -41,27 +41,27 @@ const Listings: React.FC = () => {
   }, [searchParams]);
 
   const filteredListings = listings.filter(listing => {
-    const matchesPetType = !selectedPetType || listing.allowedPets.includes(selectedPetType);
+    const matchesMaterialType = !selectedMaterialType || listing.supportedMaterials.includes(selectedMaterialType);
     const matchesListingType = !selectedListingType || listing.type === selectedListingType;
     const matchesSearch = !searchTerm ||
       listing.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       listing.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
       listing.location.toLowerCase().includes(searchTerm.toLowerCase());
 
-    return matchesPetType && matchesListingType && matchesSearch;
+    return matchesMaterialType && matchesListingType && matchesSearch;
   });
 
   if (loading) {
-    return <div className="loading">Loading listings...</div>;
+    return <div className="loading">Loading printers...</div>;
   }
 
   return (
     <div className="listings-page">
       <div className="hero-section">
-        <h1>Find pet-friendly venues</h1>
+        <h1>Find compatible printers</h1>
         <div className="search-container">          <input
             type="text"
-            placeholder="Search by name, description, or location..."
+            placeholder="Search by name, description, or category..."
             value={searchTerm}
             onChange={(e) => {
               const value = e.target.value;
@@ -81,27 +81,27 @@ const Listings: React.FC = () => {
 
       <div className="filter-section">
         <div className="filter-controls">          <div className="filter-group">
-            <label htmlFor="pet-type">Pet Type</label>
+            <label htmlFor="material-type">Material Type</label>
             <select
-              id="pet-type"
-              value={selectedPetType}
+              id="material-type"
+              value={selectedMaterialType}
               onChange={(e) => {
                 const value = e.target.value;
-                setSelectedPetType(value);
-                updateSearchParams('petType', value);
+                setSelectedMaterialType(value);
+                updateSearchParams('materialType', value);
               }}
             >
-              <option value="">All Pets</option>
-              {PET_TYPES.map((pet: PetType) => (
-                <option key={pet.id} value={pet.id}>
-                  {pet.name}
+              <option value="">All Materials</option>
+              {MATERIAL_TYPES.map((material: MaterialType) => (
+                <option key={material.id} value={material.id}>
+                  {material.name}
                 </option>
               ))}
             </select>
           </div>
 
           <div className="filter-group">
-            <label htmlFor="listing-type">Venue Type</label>
+            <label htmlFor="listing-type">Printer Category</label>
             <select
               id="listing-type"
               value={selectedListingType}
@@ -110,8 +110,8 @@ const Listings: React.FC = () => {
                 setSelectedListingType(value);
                 updateSearchParams('listingType', value);
               }}
-            >              <option value="">All Types</option>
-              {LISTING_TYPES.map((type: ListingType) => (
+            >              <option value="">All Categories</option>
+              {LISTING_TYPES.map((type: PrinterCategory) => (
                 <option key={type.id} value={type.id}>
                   {type.name}
                 </option>
@@ -124,10 +124,10 @@ const Listings: React.FC = () => {
       <div className="listings-container">
         {filteredListings.length === 0 ? (
           <div className="no-results">
-            <p>No listings found matching your criteria.</p>
+            <p>No printers found matching your criteria.</p>
             <button
               className="btn btn-secondary"              onClick={() => {
-                setSelectedPetType('');
+                setSelectedMaterialType('');
                 setSelectedListingType('');
                 setSearchTerm('');
                 setSearchParams(new URLSearchParams());
@@ -147,15 +147,15 @@ const Listings: React.FC = () => {
       <section className="cta-section-container">
         <section className="cta-section">
           <div className="cta-image">
-            <img src={`${process.env.PUBLIC_URL}/images/generic/doggo.jpg`} alt="Dog enjoying a pet-friendly place" />
+            <img src={`${process.env.PUBLIC_URL}/images/generic/doggo.jpg`} alt="3D printing workspace" />
           </div>
           <div className="cta-content">
             <div className="cta-text">
-              <h2>Have a pet-friendly place to share?</h2>
-              <p>Help other pet owners discover great places for their furry, feathery, or scaly friends.</p>
+              <h2>Have a design to share?</h2>
+              <p>Help other makers discover great designs compatible with their printers.</p>
             </div>
             <div className="hero-buttons">
-              <Link to={ROUTES.ADD_LISTING} className="btn btn-black">Add a listing</Link>
+              <Link to={ROUTES.ADD_LISTING} className="btn btn-black">Upload a design</Link>
             </div>
           </div>
         </section>

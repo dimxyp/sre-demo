@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Octopets.Backend.Data;
-using Octopets.Backend.Endpoints;
-using Octopets.Backend.Repositories;
-using Octopets.Backend.Repositories.Interfaces;
+using PrintHub.Backend.Data;
+using PrintHub.Backend.Endpoints;
+using PrintHub.Backend.Repositories;
+using PrintHub.Backend.Repositories.Interfaces;
 using Scalar.AspNetCore;
 using System.Text.Json.Serialization;
 
@@ -14,7 +14,7 @@ builder.AddServiceDefaults();
 
 // Add DbContext using an in-memory database
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("OctopetsDb"));
+    options.UseInMemoryDatabase("PrintHubDb"));
 
 // Configure JSON serialization to handle circular references
 builder.Services.ConfigureHttpJsonOptions(options =>

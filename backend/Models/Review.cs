@@ -1,4 +1,4 @@
-namespace Octopets.Backend.Models;
+namespace PrintHub.Backend.Models;
 
 public class Review
 {

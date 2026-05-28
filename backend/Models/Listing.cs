@@ -1,4 +1,4 @@
-namespace Octopets.Backend.Models;
+namespace PrintHub.Backend.Models;
 
 public class Listing
 {
@@ -9,8 +9,8 @@ public class Listing
     public string? Address { get; set; }
     public string Location { get; set; } = string.Empty;
     public string? Type { get; set; }
-    public List<string> AllowedPets { get; set; } = new();
-    public List<string> Amenities { get; set; } = new();
+    public List<string> SupportedMaterials { get; set; } = new();
+    public List<string> Specifications { get; set; } = new();
     public double Rating { get; set; } = 0.0;
     public List<string> Photos { get; set; } = new();
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

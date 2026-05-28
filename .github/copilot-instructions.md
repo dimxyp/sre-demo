@@ -1,18 +1,18 @@
 <rules>
     <project-overview>
-    Octopets is a distributed application for discovering and sharing pet-friendly venues, consisting of these main projects:
+    PrintHub is a distributed application for discovering compatible 3D printers and sharing designs, consisting of these main projects:
 
     1. Frontend (React + TypeScript):
        - Located in /frontend
        - Single-page application using React Router
-       - Features: venue browsing, filtering, reviews, and listing management
+       - Features: printer browsing, filtering, reviews, and design management
        - Components organized into pages/, components/, and data/ directories
        - Styled with custom CSS in styles/
 
     2. Backend (ASP.NET Core):
        - Located in /backend
        - Minimal API architecture with Entity Framework Core
-       - Features endpoints for venues, listings, and reviews
+       - Features endpoints for printers, listings, and reviews
        - Uses repository pattern for data access
        - Includes OpenAPI/Scalar documentation
 

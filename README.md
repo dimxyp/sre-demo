@@ -1,22 +1,22 @@
-# 🐕 Octopets
+# �️ PrintHub
 
-A simple web app for discovering and sharing pet-friendly homes, parks, cafés, and custom venues for your fur babies.
+A simple web app for discovering compatible 3D printers and sharing designs with the maker community.
 
-![Octopets landing page](media/octopets-landing.gif)
+![PrintHub landing page](media/octopets-landing.gif)
 
 ## 📽️ See it in action
 
-The project was presented at Microsoft Build 2025 during the [Reimagining Software Development and DevOps with Agentic AI](https://build.microsoft.com/en-US/sessions/BRK100?source=sessions) session. You can also catch up with the video, where you can see Octopets in action:
+The project was presented at Microsoft Build 2025 during the [Reimagining Software Development and DevOps with Agentic AI](https://build.microsoft.com/en-US/sessions/BRK100?source=sessions) session. You can also catch up with the video, where you can see PrintHub in action:
 
 [![Reimagining Software Development and DevOps with Agentic AI | BRK100](media/video-image.jpg)](https://www.youtube.com/watch?v=eVPHMMrORbA)
 
 ## 🙋‍♂️ About the project
 
-Octopets is a platform designed to help pet owners find and share pet-friendly venues. The application allows users to:
+PrintHub is a platform designed to help makers find compatible 3D printers for their designs. The application allows users to:
 
-- Browse and search for pet-friendly venues by pet type and venue type
-- View details about each venue, including allowed pet types, amenities, and photos
-- Navigate between main pages: Home, Listings, Add Listing, Listing Details, and Reviews
+- Browse and search for 3D printers by material type and printer category
+- View details about each printer, including supported materials, specifications, and photos
+- Navigate between main pages: Home, Printers, Upload Design, Printer Details, and Reviews
 
 ## 🏗️ Tech stack
 
@@ -70,7 +70,7 @@ You can find prompts that can be used to generate the project as well as automat
    dotnet run --project apphost
    ```
    
-   Alternatively, open the `Octopets.sln` solution in Visual Studio and run the AppHost project.
+   Alternatively, open the `PrintHub.sln` solution in Visual Studio and run the AppHost project.
 
 4. The Aspire dashboard will open in your browser, providing access to:
    - Frontend application (React)
@@ -109,7 +109,7 @@ The application uses a modern distributed architecture powered by .NET Aspire:
 
 ## 📊 Mock data
 
-Octopets uses a mock data system for both the frontend and backend to simplify local development and testing. This allows you to run the app without a persistent database or live API, and ensures the frontend and backend use consistent data models and sample content.
+PrintHub uses a mock data system for both the frontend and backend to simplify local development and testing. This allows you to run the app without a persistent database or live API, and ensures the frontend and backend use consistent data models and sample content.
 
 ### 🙋‍♀️ How mock data works
 
@@ -126,12 +126,12 @@ The AppHost project (`apphost/Program.cs`) automatically configures both the fro
 var useMockData = builder.ExecutionContext.IsPublishMode ? "false" : "true";
 
 // Configure backend
-var api = builder.AddProject<Projects.Octopets_Backend>("octopets-backend")
+var api = builder.AddProject<Projects.PrintHub_Backend>("printhubapi")
     // Other configuration...
     .WithEnvironment("ENABLE_CRUD", builder.ExecutionContext.IsPublishMode ? "false" : "true");
 
 // Configure frontend
-var frontend = builder.AddDockerfile("octopets-frontend", "../frontend", "Dockerfile")
+var frontend = builder.AddDockerfile("printhubfe", "../frontend", "Dockerfile")
     // Other configuration...
     .WithEnvironment("REACT_APP_USE_MOCK_DATA", useMockData);
 ```
@@ -168,7 +168,7 @@ This ensures that both the frontend and backend are synchronized in their use of
 
 ### 🎨 Customizing mock data
 
-- You can edit the mock data directly in the files listed above to add, remove, or modify sample venues, reviews, ratings, and photos.
+- You can edit the mock data directly in the files listed above to add, remove, or modify sample printers, reviews, ratings, and photos.
 - For more listings, simply add new objects to the arrays in `listingsData.ts` (frontend) and the `SeedData` method in `AppDbContext.cs` (backend).
 
 ### 🧑‍🚀 Production/deployment

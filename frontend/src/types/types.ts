@@ -1,21 +1,21 @@
 // Define types for our application data
 import { ReactNode } from 'react';
 
-export type PetType = {
+export type MaterialType = {
   id: string;
   name: string;
   icon: ReactNode;
   description: string;
 };
 
-export type ListingType = {
+export type PrinterCategory = {
   id: string;
   name: string;
   icon: ReactNode;
   description: string;
 };
 
-export type Amenity = {
+export type Specification = {
   id: string;
   name: string;
   icon: string;
@@ -36,8 +36,8 @@ export type Listing = {
   description: string;
   type: string;
   location: string;
-  allowedPets: string[];
-  amenities: string[];
+  supportedMaterials: string[];
+  specifications: string[];
   photos: string[];
   rating: number;
   reviews: Review[];
@@ -58,8 +58,8 @@ export type FormState = {
   description: string;
   type: string;
   location: string;
-  allowedPets: string[];
-  amenities: string[];
+  supportedMaterials: string[];
+  specifications: string[];
   contactInfo: {
     phone: string;
     email: string;

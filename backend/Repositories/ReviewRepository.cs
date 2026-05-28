@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Octopets.Backend.Data;
-using Octopets.Backend.Models;
-using Octopets.Backend.Repositories.Interfaces;
+using PrintHub.Backend.Data;
+using PrintHub.Backend.Models;
+using PrintHub.Backend.Repositories.Interfaces;
 
-namespace Octopets.Backend.Repositories;
+namespace PrintHub.Backend.Repositories;
 
 public class ReviewRepository : IReviewRepository
 {

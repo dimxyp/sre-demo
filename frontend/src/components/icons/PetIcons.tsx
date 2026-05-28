@@ -1,47 +1,59 @@
 import React from 'react';
-import PawIcon from '../PawIcon';
 
-interface PetIconProps {
+interface MaterialIconProps {
   type?: string;
   className?: string;
   size?: number;
 }
 
-export const DogIcon: React.FC<PetIconProps> = ({ className = '', size = 24 }) => (
-  <span className={className} style={{ fontSize: `${size/16}rem` }}>🐶</span>
+export const PLAIcon: React.FC<MaterialIconProps> = ({ className = '', size = 24 }) => (
+  <span className={className} style={{ fontSize: `${size/16}rem` }}>🟢</span>
 );
 
-export const CatIcon: React.FC<PetIconProps> = ({ className = '', size = 24 }) => (
-  <span className={className} style={{ fontSize: `${size/16}rem` }}>😻</span>
+export const ABSIcon: React.FC<MaterialIconProps> = ({ className = '', size = 24 }) => (
+  <span className={className} style={{ fontSize: `${size/16}rem` }}>🔴</span>
 );
 
-export const BirdIcon: React.FC<PetIconProps> = ({ className = '', size = 24 }) => (
-  <span className={className} style={{ fontSize: `${size/16}rem` }}>🦜</span>
+export const PETGIcon: React.FC<MaterialIconProps> = ({ className = '', size = 24 }) => (
+  <span className={className} style={{ fontSize: `${size/16}rem` }}>🔵</span>
 );
 
-export const SmallMammalIcon: React.FC<PetIconProps> = ({ className = '', size = 24 }) => (
-  <span className={className} style={{ fontSize: `${size/16}rem` }}>🐹</span>
+export const ResinIcon: React.FC<MaterialIconProps> = ({ className = '', size = 24 }) => (
+  <span className={className} style={{ fontSize: `${size/16}rem` }}>💎</span>
 );
 
-export const OtherPetIcon: React.FC<PetIconProps> = ({ className = '', size = 24 }) => (
-  <span className={className} style={{ fontSize: `${size/16}rem` }}>🦔</span>
+export const NylonIcon: React.FC<MaterialIconProps> = ({ className = '', size = 24 }) => (
+  <span className={className} style={{ fontSize: `${size/16}rem` }}>⚪</span>
 );
 
-const PetIcon: React.FC<PetIconProps> = ({ type, className = '', size = 24 }) => {
+export const TPUIcon: React.FC<MaterialIconProps> = ({ className = '', size = 24 }) => (
+  <span className={className} style={{ fontSize: `${size/16}rem` }}>🟡</span>
+);
+
+// Keep old exports for backward compatibility
+export const DogIcon = PLAIcon;
+export const CatIcon = ABSIcon;
+export const BirdIcon = PETGIcon;
+export const SmallMammalIcon = ResinIcon;
+export const OtherPetIcon = NylonIcon;
+
+const MaterialIcon: React.FC<MaterialIconProps> = ({ type, className = '', size = 24 }) => {
   switch (type) {
-    case 'dogs':
-      return <DogIcon className={className} size={size} />;
-    case 'cats':
-      return <CatIcon className={className} size={size} />;
-    case 'birds':
-      return <BirdIcon className={className} size={size} />;
-    case 'small_mammals':
-      return <SmallMammalIcon className={className} size={size} />;
-    case 'other':
-      return <OtherPetIcon className={className} size={size} />;
+    case 'PLA':
+      return <PLAIcon className={className} size={size} />;
+    case 'ABS':
+      return <ABSIcon className={className} size={size} />;
+    case 'PETG':
+      return <PETGIcon className={className} size={size} />;
+    case 'Resin (SLA)':
+      return <ResinIcon className={className} size={size} />;
+    case 'Nylon':
+      return <NylonIcon className={className} size={size} />;
+    case 'TPU (flexible)':
+      return <TPUIcon className={className} size={size} />;
     default:
-      return <PawIcon className={className} width={size} height={size} color="var(--primary-700)" />;
+      return <span className={className} style={{ fontSize: `${size/16}rem` }}>⚙️</span>;
   }
 };
 
-export default PetIcon;
+export default MaterialIcon;

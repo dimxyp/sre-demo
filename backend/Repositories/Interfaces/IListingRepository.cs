@@ -1,6 +1,6 @@
-using Octopets.Backend.Models;
+using PrintHub.Backend.Models;
 
-namespace Octopets.Backend.Repositories.Interfaces;
+namespace PrintHub.Backend.Repositories.Interfaces;
 
 public interface IListingRepository
 {

@@ -1,7 +1,7 @@
-using Octopets.Backend.Models;
-using Octopets.Backend.Repositories.Interfaces;
+using PrintHub.Backend.Models;
+using PrintHub.Backend.Repositories.Interfaces;
 
-namespace Octopets.Backend.Endpoints;
+namespace PrintHub.Backend.Endpoints;
 
 public static class ListingEndpoints
 {    // Method to simulate memory exhaustion by allocating ~1GB of memory

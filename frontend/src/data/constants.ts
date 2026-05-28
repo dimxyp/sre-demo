@@ -1,30 +1,30 @@
 // Constants for the application
-import { ListingType } from '../types/types';
+import { PrinterCategory } from '../types/types';
 
-// Listing types that are supported by the application
-export const LISTING_TYPES: ListingType[] = [
-  { id: "park", name: "Parks", icon: "🌳", description: "Open spaces for pets to run and play" },
-  { id: "cafe", name: "Cafés", icon: "☕", description: "Places to eat and drink with your pet" },
-  { id: "home", name: "Homes", icon: "🏠", description: "Pet-friendly accommodations" },
-  { id: "hotel", name: "Hotels", icon: "🏨", description: "Places to stay overnight with your pet" },
-  { id: "custom", name: "Custom Venues", icon: "🏢", description: "Other pet-friendly establishments" }
+// Printer categories supported by the application
+export const LISTING_TYPES: PrinterCategory[] = [
+  { id: "fdm", name: "FDM", icon: "🖨️", description: "Fused Deposition Modeling printers" },
+  { id: "sla", name: "SLA (Resin)", icon: "💎", description: "Stereolithography resin printers" },
+  { id: "sls", name: "SLS", icon: "⚡", description: "Selective Laser Sintering printers" },
+  { id: "industrial", name: "Industrial", icon: "🏭", description: "Industrial-grade production printers" },
+  { id: "multi-material", name: "Multi-material", icon: "🎨", description: "Multi-material and multi-color printers" }
 ];
 
-// Common amenities that can be selected when adding a new venue
-export const AMENITIES: string[] = [
-  "Water stations",
-  "Pet beds",
-  "Off-leash areas",
-  "Waste stations",
-  "Pet menu/treats",
-  "Pet-sitting services",
-  "Outdoor seating",
-  "Pet play equipment",
-  "Fenced area",
-  "Walking trails",
-  "Bathing facilities",
-  "First aid for pets",
-  "Pet shop/store"
+// Common specifications that can be selected when uploading a new design
+export const SPECIFICATIONS: string[] = [
+  "Heated bed required",
+  "Enclosure recommended",
+  "Supports needed",
+  "Multi-color capable",
+  "High temperature nozzle",
+  "Direct drive extruder",
+  "Dual extrusion",
+  "Auto bed leveling",
+  "Large build volume",
+  "Fine detail (< 0.1mm)",
+  "Water-soluble supports",
+  "High speed printing",
+  "WiFi connectivity"
 ];
 
 // Application routes
@@ -32,6 +32,6 @@ export const ROUTES: Record<string, string> = {
   HOME: "/",
   LISTINGS: "/listings",
   LISTING_DETAILS: "/listing/:id",
-  ADD_LISTING: "/add-listing",
+  ADD_LISTING: "/upload-design",
   REVIEWS: "/reviews/:id"
 };

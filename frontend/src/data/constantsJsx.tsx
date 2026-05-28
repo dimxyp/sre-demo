@@ -1,18 +1,18 @@
 // Constants with JSX Components
 import React from 'react';
-import { PetType, ListingType } from '../types/types';
-import { DogIcon, CatIcon, BirdIcon, SmallMammalIcon, OtherPetIcon } from '../components/icons/PetIcons';
+import { MaterialType } from '../types/types';
 
-// Pet types that are supported by the application
-export const PET_TYPES: PetType[] = [
-  { id: "dogs", name: "Dogs", icon: <DogIcon size={42} />, description: "Man's best friend" },
-  { id: "cats", name: "Cats", icon: <CatIcon size={42} />, description: "Independent and loving companions" },
-  { id: "birds", name: "Birds", icon: <BirdIcon size={42} />, description: "Colorful, vocal friends" },
-  { id: "small_mammals", name: "Mammals", icon: <SmallMammalIcon size={42} />, description: "Hamsters, guinea pigs, rabbits, and more" },
-  { id: "other", name: "Other Pets", icon: <OtherPetIcon size={42} />, description: "Reptiles, fish, and more unusual friends" }
+// Material types that are supported by the application
+export const MATERIAL_TYPES: MaterialType[] = [
+  { id: "PLA", name: "PLA", icon: <span style={{ fontSize: '2.625rem' }}>🟢</span>, description: "Easy to print, biodegradable" },
+  { id: "ABS", name: "ABS", icon: <span style={{ fontSize: '2.625rem' }}>🔴</span>, description: "Durable, heat-resistant" },
+  { id: "PETG", name: "PETG", icon: <span style={{ fontSize: '2.625rem' }}>🔵</span>, description: "Strong, flexible, food-safe" },
+  { id: "Resin (SLA)", name: "Resin (SLA)", icon: <span style={{ fontSize: '2.625rem' }}>💎</span>, description: "Ultra-high detail prints" },
+  { id: "Nylon", name: "Nylon", icon: <span style={{ fontSize: '2.625rem' }}>⚪</span>, description: "Tough, wear-resistant" },
+  { id: "TPU (flexible)", name: "TPU (flexible)", icon: <span style={{ fontSize: '2.625rem' }}>🟡</span>, description: "Flexible, rubber-like material" }
 ];
 
 // Export the constants for use in components
 export default {
-  PET_TYPES
+  MATERIAL_TYPES
 };

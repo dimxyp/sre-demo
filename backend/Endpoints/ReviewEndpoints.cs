@@ -1,8 +1,8 @@
-using Octopets.Backend.Models;
-using Octopets.Backend.Repositories.Interfaces;
+using PrintHub.Backend.Models;
+using PrintHub.Backend.Repositories.Interfaces;
 using Microsoft.Extensions.Configuration;
 
-namespace Octopets.Backend.Endpoints;
+namespace PrintHub.Backend.Endpoints;
 
 public static class ReviewEndpoints
 {

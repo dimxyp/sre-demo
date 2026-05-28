@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { LISTING_TYPES, ROUTES } from '../data/constants';
-import { PET_TYPES } from '../data/constantsJsx';
+import { MATERIAL_TYPES } from '../data/constantsJsx';
 import { DataService } from '../data/dataService';
-import { Listing, ListingType } from '../types/types';
+import { Listing, PrinterCategory } from '../types/types';
 import '../styles/ListingDetails.css';
 
 const ListingDetails: React.FC = () => {
@@ -30,15 +30,15 @@ const ListingDetails: React.FC = () => {
   }, [id]);
 
   if (loading) {
-    return <div className="loading">Loading listing details...</div>;
+    return <div className="loading">Loading design details...</div>;
   }
 
   if (!listing) {
     return (
       <div className="not-found">
-        <h2>Listing Not Found</h2>
-        <p>Sorry, we couldn't find a listing with that ID.</p>
-        <Link to={ROUTES.LISTINGS} className="btn">Back to Listings</Link>
+        <h2>Printer Not Found</h2>
+        <p>Sorry, we couldn't find a printer with that ID.</p>
+        <Link to={ROUTES.LISTINGS} className="btn">Back to Printers</Link>
       </div>
     );
   }
@@ -48,20 +48,20 @@ const ListingDetails: React.FC = () => {
       <div className="listing-header">
         <img 
           src={`${process.env.PUBLIC_URL}/images/generic/cat.jpg`} 
-          alt="Cat in a pet-friendly place" 
+          alt="3D Printer" 
           className="listing-header-background"
         />        
         <div className="listing-header-overlay"></div>
         <div className="venue-type-tag">
           <div className="venue-type-pill">
-            <span>{LISTING_TYPES.find((t: ListingType) => t.id === listing.type)?.icon}</span>
-            <span>{LISTING_TYPES.find((t: ListingType) => t.id === listing.type)?.name}</span>
+            <span>{LISTING_TYPES.find((t: PrinterCategory) => t.id === listing.type)?.icon}</span>
+            <span>{LISTING_TYPES.find((t: PrinterCategory) => t.id === listing.type)?.name}</span>
           </div>
         </div>
         <div className="listing-title">
           <h1>{listing.name}</h1>          
           <div className="listing-location">
-            <span>📍</span> {listing.location}
+            <span>🖨️</span> {listing.location}
           </div>
           <div className="rating-container">
             <span>★ {listing.rating.toFixed(1)} <span className="reviews-gray">({listing.reviews.length} reviews)</span></span>
@@ -91,7 +91,7 @@ const ListingDetails: React.FC = () => {
           </div>
         </div>
         <div className="listing-actions">
-          <Link to={ROUTES.LISTINGS} className="btn btn-outline">Back to Listings</Link>
+          <Link to={ROUTES.LISTINGS} className="btn btn-outline">Back to Printers</Link>
         </div>
       </div>
 
@@ -147,7 +147,7 @@ const ListingDetails: React.FC = () => {
               ) : (
                 <div className="image-placeholder">
                   <div className="placeholder-icon">
-                    {LISTING_TYPES.find((t: ListingType) => t.id === listing.type)?.icon || '🏠'}
+                    {LISTING_TYPES.find((t: PrinterCategory) => t.id === listing.type)?.icon || '🖨️'}
                   </div>
                   <p>Photo gallery would appear here</p>
                 </div>
@@ -155,33 +155,33 @@ const ListingDetails: React.FC = () => {
             </div>
             
             <div className="listing-description">
-              <h2>About This Place</h2>
+              <h2>About This Printer</h2>
               <p>{listing.description}</p>
             </div>
           </div>
         </div>
 
         <div className="listing-sidebar">          <div className="allowed-pets-section">
-            <h3>Allowed Pets</h3>
-            <div className="allowed-pets-pills">                {listing.allowedPets.map((petId, index) => {
-                const pet = PET_TYPES.find(p => p.id === petId);
-                return pet ? (                  <div 
-                    key={petId} 
+            <h3>Supported Materials</h3>
+            <div className="allowed-pets-pills">                {listing.supportedMaterials.map((materialId, index) => {
+                const material = MATERIAL_TYPES.find(m => m.id === materialId);
+                return material ? (                  <div 
+                    key={materialId} 
                     className="pet-pill"
                   >
-                    <span className="pet-icon">{pet.icon}</span>
-                    <span className="pet-name">{pet.name}</span>
+                    <span className="pet-icon">{material.icon}</span>
+                    <span className="pet-name">{material.name}</span>
                   </div>
                 ) : null;
               })}
             </div>
           </div><div className="amenities-sidebar-section">
-            <h3>Amenities</h3>
-            <div className="amenities-pills">              {listing.amenities.map((amenity, index) => (                <div 
-                  key={amenity} 
+            <h3>Specifications</h3>
+            <div className="amenities-pills">              {listing.specifications.map((spec, index) => (                <div 
+                  key={spec} 
                   className="amenity-pill"
                 >
-                  {amenity}
+                  {spec}
                 </div>
               ))}
             </div>

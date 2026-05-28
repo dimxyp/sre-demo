@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/ListingCard.css';
-import { Listing, ListingType } from '../types/types';
+import { Listing, PrinterCategory } from '../types/types';
 import { LISTING_TYPES } from '../data/constants';
-import { PET_TYPES } from '../data/constantsJsx';
+import { MATERIAL_TYPES } from '../data/constantsJsx';
 
 interface ListingCardProps {
   listing: Listing;
@@ -17,13 +17,13 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
           <img src={`/images/venues/${listing.photos[0]}`} alt={listing.name} />
         ) : (
           <div className="image-placeholder">
-            {LISTING_TYPES.find((t: ListingType) => t.id === listing.type)?.icon || '🏠'}
+            {LISTING_TYPES.find((t: PrinterCategory) => t.id === listing.type)?.icon || '🖨️'}
           </div>
         )}
         <div className="image-overlay">
           <div className="overlay-type">
-            {LISTING_TYPES.find((t: ListingType) => t.id === listing.type)?.icon}
-            <span>{LISTING_TYPES.find((t: ListingType) => t.id === listing.type)?.name}</span>
+            {LISTING_TYPES.find((t: PrinterCategory) => t.id === listing.type)?.icon}
+            <span>{LISTING_TYPES.find((t: PrinterCategory) => t.id === listing.type)?.name}</span>
           </div>
           <div className="overlay-rating">
             <span className="stars">★</span>
@@ -35,11 +35,11 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
       <div className="listing-details-under-name">
         <h3>{listing.name}</h3>
         <div className="listing-address">{listing.location}</div>        <div className="allowed-pets-horizontal">
-          {listing.allowedPets.map(petId => {
-            const pet = PET_TYPES.find(p => p.id === petId);
-            return pet ? (
-              <span key={pet.id} className="pet-icon" title={pet.name}>
-                {pet.icon}
+          {listing.supportedMaterials.map(materialId => {
+            const material = MATERIAL_TYPES.find(m => m.id === materialId);
+            return material ? (
+              <span key={material.id} className="pet-icon" title={material.name}>
+                {material.icon}
               </span>
             ) : null;
           })}

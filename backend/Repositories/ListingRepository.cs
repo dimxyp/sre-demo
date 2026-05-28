@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Octopets.Backend.Data;
-using Octopets.Backend.Models;
-using Octopets.Backend.Repositories.Interfaces;
+using PrintHub.Backend.Data;
+using PrintHub.Backend.Models;
+using PrintHub.Backend.Repositories.Interfaces;
 
-namespace Octopets.Backend.Repositories;
+namespace PrintHub.Backend.Repositories;
 
 public class ListingRepository : IListingRepository
 {
@@ -48,8 +48,8 @@ public class ListingRepository : IListingRepository
         existingListing.Address = listing.Address;
         existingListing.Price = listing.Price;
         existingListing.Type = listing.Type;
-        existingListing.AllowedPets = listing.AllowedPets;
-        existingListing.Amenities = listing.Amenities;
+        existingListing.SupportedMaterials = listing.SupportedMaterials;
+        existingListing.Specifications = listing.Specifications;
         existingListing.UpdatedAt = DateTime.UtcNow;
 
         await _context.SaveChangesAsync();

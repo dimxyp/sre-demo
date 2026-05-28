@@ -4,5 +4,5 @@ name: apphost
 services:  
   app:
     language: dotnet
-    project: ./Octopets.AppHost.csproj
+    project: ./PrintHub.AppHost.csproj
     host: containerapp

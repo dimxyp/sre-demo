@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Octopets.Backend.Data;
+using PrintHub.Backend.Data;
 
-namespace Octopets.Backend.Data;
+namespace PrintHub.Backend.Data;
 
 public static class DataInitializer
 {
